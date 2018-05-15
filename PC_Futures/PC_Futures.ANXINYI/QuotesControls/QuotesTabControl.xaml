@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="PC_Futures.ANXINYI.QuotesTabControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PC_Futures.ANXINYI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600" Loaded="UserControl_Loaded">
+    <Grid>
+        <TabControl x:Name="AllFuturesQuota" TabStripPlacement="Bottom"  Padding="0" BorderThickness="0" SelectedIndex="{Binding SelectedIndex}">
+            <!--<TabItem Style="{StaticResource QuotesTabItemStyle}" Header="港交所">
+                <local:QuotesDataGrid x:Name="HKEx"/>
+            </TabItem>
+            <TabItem Style="{StaticResource QuotesTabItemStyle}" Header="CME能源">
+                <local:QuotesDataGrid x:Name="CMEENG"/>
+            </TabItem>
+            <TabItem Style="{StaticResource QuotesTabItemStyle}" Header="CME金属">
+                <local:QuotesDataGrid x:Name="CMEMET"/>
+            </TabItem>
+            <TabItem Style="{StaticResource QuotesTabItemStyle}" Header="CME外汇">
+                <local:QuotesDataGrid x:Name="CMEFEX"/>
+            </TabItem>
+            <TabItem Style="{StaticResource QuotesTabItemStyle}" Header="CME指数">
+                <local:QuotesDataGrid x:Name="CMEIDX"/>
+            </TabItem>
+            <TabItem Style="{StaticResource QuotesTabItemStyle}" Header="CME农业">
+                <local:QuotesDataGrid x:Name="CMEFRM"/>
+            </TabItem>
+            <TabItem Style="{StaticResource QuotesTabItemStyle}" Header="Eurex">
+                <local:QuotesDataGrid x:Name="EUREX"/>
+            </TabItem>
+            <TabItem Style="{StaticResource QuotesTabItemStyle}" Header="SGX-A50">
+                <local:QuotesDataGrid x:Name="SGXA50"/>
+            </TabItem>-->
+        </TabControl>
+    </Grid>
+</UserControl>

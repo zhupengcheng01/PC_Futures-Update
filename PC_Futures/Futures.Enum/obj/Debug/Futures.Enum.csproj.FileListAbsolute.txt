@@ -1,0 +1,4 @@
+F:\pc\new\net.futures.PC\PC_Futures\Futures.Enum\bin\Debug\Futures.Enum.dll
+F:\pc\new\net.futures.PC\PC_Futures\Futures.Enum\bin\Debug\Futures.Enum.pdb
+F:\pc\new\net.futures.PC\PC_Futures\Futures.Enum\obj\Debug\Futures.Enum.dll
+F:\pc\new\net.futures.PC\PC_Futures\Futures.Enum\obj\Debug\Futures.Enum.pdb

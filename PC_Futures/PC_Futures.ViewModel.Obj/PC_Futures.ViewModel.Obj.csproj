@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ED8088F8-DEFA-4E5A-B808-1B071F714437}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PC_Futures.ViewModel.Obj</RootNamespace>
+    <AssemblyName>PC_Futures.ViewModel.Obj</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MicroMvvm">
+      <HintPath>..\Depends\MicroMvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConditionBill\ConditionBillModelViewModel.cs" />
+    <Compile Include="FuturesViewModels\EachDealViewModel.cs" />
+    <Compile Include="FuturesViewModels\FuturesTickViewModel.cs" />
+    <Compile Include="FuturesViewModels\FuturesViewModel.cs" />
+    <Compile Include="LoginViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MainViewModels\" />
+    <Folder Include="ParameterSet\" />
+    <Folder Include="PositionViewModels\" />
+    <Folder Include="Select\" />
+    <Folder Include="TodayTraderViewModels\" />
+    <Folder Include="TransactionViewModels\" />
+    <Folder Include="Windows\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Futures.Enum\Futures.Enum.csproj">
+      <Project>{17e1be4b-84bd-42e4-b44f-7dcc90a11fe3}</Project>
+      <Name>Futures.Enum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PC_Futures.Models\PC_Futures.Models.csproj">
+      <Project>{e0ac6564-de2d-4f8b-876c-cca59b05bd27}</Project>
+      <Name>PC_Futures.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PC_Futures.WebScoket\PC_Futures.WebScoket.csproj">
+      <Project>{2c1118bf-4f10-486f-9383-a86a6db11d63}</Project>
+      <Name>PC_Futures.WebScoket</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{a8d9572a-2633-4dcd-b92b-451550e5c755}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

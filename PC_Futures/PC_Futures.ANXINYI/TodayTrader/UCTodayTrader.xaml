@@ -1,0 +1,337 @@
+﻿<UserControl x:Class="PC_Futures.ANXINYI.UCTodayTrader"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PC_Futures.ANXINYI"
+             mc:Ignorable="d" 
+                     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+               xmlns:Utilities="clr-namespace:Utilities;assembly=Utilities"
+             d:DesignHeight="300" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ControlStyles/ButtonStyles.xaml"/>
+                <ResourceDictionary Source="/ControlStyles/CommboxStyles.xaml"/>
+                <ResourceDictionary Source="/ControlStyles/ControlStyles.xaml"/>
+                <ResourceDictionary Source="/ControlStyles/DataGridStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Utilities:BSToValueConverter x:Key="BSToValueConverter"/>
+            <Utilities:StrToColorValueConverter x:Key="StrToColorValueConverter"/>
+            <Utilities:OFFSETTypeToValue x:Key="OFFSETTypeToValueConvert"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel  Panel.ZIndex="1" HorizontalAlignment="Right" Margin="0,2,20,0">
+            <Button  Style="{StaticResource DaochuButton}" Command="{Binding ExportCommand}" Visibility="Collapsed"></Button>
+        </StackPanel>
+        <Border>
+            <TabControl  BorderBrush="#2C8FDD">
+                <TabItem Header="成交明细" >
+                    <DataGrid Grid.Row="1" SelectionUnit="FullRow" AutoGenerateColumns="False" CanUserSortColumns="False"   CanUserResizeColumns="True" CanUserResizeRows="False"   AlternationCount="2"
+                 CanUserAddRows="False"   ItemsSource="{Binding TodayTraderList}"  Style="{StaticResource DataGridStyle}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" Margin="0,0,0,13.76"  >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn   Width="*" >
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border MouseLeftButtonDown="Border_MouseLeftButtonDown"  Background="Transparent">
+                                            <TextBlock Text="合约"  Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding ContractCode }" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn    Width="*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border  MouseLeftButtonDown="Border_MouseLeftButtonDown_1"  Background="Transparent">
+                                            <TextBlock Text="买卖"  Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding Direction,Converter={StaticResource BSToValueConverter} }" Foreground="{Binding Direction,Converter={StaticResource StrToColorValueConverter}}"  Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn    Width="*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border MouseLeftButtonDown="Border_MouseLeftButtonDown_2"  Background="Transparent">
+                                            <TextBlock Text="开平"  Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding OpenOffset,Converter={StaticResource OFFSETTypeToValueConvert}  }"  Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn    Width="*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border MouseLeftButtonDown="Border_MouseLeftButtonDown_3"  Background="Transparent">
+                                            <TextBlock Text="成交价格"  Background="Transparent"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding TradePrice}" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn   Width="*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border MouseLeftButtonDown="Border_MouseLeftButtonDown_4" Background="Transparent">
+                                            <TextBlock Text="委托编号"  Background="Transparent"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding ShadowOrderID }" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn   Width="*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border MouseLeftButtonDown="Border_MouseLeftButtonDown_5" Background="Transparent">
+                                            <TextBlock Text="成交手数"  Background="Transparent"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding TradeVolume }" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn   Width="*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border MouseLeftButtonDown="Border_MouseLeftButtonDown_6"  Background="Transparent">
+                                            <TextBlock Text="成交时间"  Background="Transparent"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding TradeTime }" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn   Width="*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border   MouseLeftButtonDown="Border_MouseLeftButtonDown_7" Background="Transparent">
+                                            <TextBlock Text="成交编号"  Background="Transparent"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding ShadowTradeID }" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </TabItem>
+                <TabItem Header="按合约汇总" >
+                    <DataGrid Grid.Row="1" SelectionUnit="FullRow" AutoGenerateColumns="False" CanUserSortColumns="False"   CanUserResizeColumns="False" CanUserResizeRows="False"   AlternationCount="2"
+                 CanUserAddRows="False"   ItemsSource="{Binding TodayTraderListALL}"  Style="{StaticResource DataGridStyle}" SelectedItem="{Binding SelectedItemAll}" SelectionMode="Single"   >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                <i:InvokeCommandAction Command="{Binding SelectionChangedALLCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn   Width="*" >
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border  MouseLeftButtonDown="Border_MouseLeftButtonDown_8" Background="Transparent">
+                                            <TextBlock Text="合约"  Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding ContractCode }" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn    Width="*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border  MouseLeftButtonDown="Border_MouseLeftButtonDown_9"  Background="Transparent">
+                                            <TextBlock Text="买卖"  Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding Direction,Converter={StaticResource BSToValueConverter} }" Foreground="{Binding Direction,Converter={StaticResource StrToColorValueConverter}}"  Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn    Width="*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border MouseLeftButtonDown="Border_MouseLeftButtonDown_10"  Background="Transparent">
+                                            <TextBlock Text="开平"  Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding OpenOffset,Converter={StaticResource OFFSETTypeToValueConvert}  }"  Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn    Width="*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border  MouseLeftButtonDown="Border_MouseLeftButtonDown_11"  Background="Transparent">
+                                            <TextBlock Text="成交价格"  Background="Transparent"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding TradePrice }" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <!--<DataGridTemplateColumn   Width="*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border  MouseLeftButtonDown="Border_MouseLeftButtonDown_12"  Background="Transparent">
+                                            <TextBlock Text="委托编号"  Background="Transparent"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding OrderOrderref }" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>-->
+                            <DataGridTemplateColumn   Width="*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border MouseLeftButtonDown="Border_MouseLeftButtonDown_13"  Background="Transparent">
+                                            <TextBlock Text="成交手数"  Background="Transparent"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding TradeVolume }" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <!--<DataGridTemplateColumn   Width="*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border  Background="Transparent">
+                                            <TextBlock Text="成交时间"  Background="Transparent"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding TradeTime }" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn   Width="*">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Border  Background="Transparent">
+                                            <TextBlock Text="成交编号"  Background="Transparent"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            </TextBlock>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding TradeNumber }" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>-->
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </TabItem>
+            </TabControl>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,16 @@
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\bin\Debug\Utilities.dll
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\bin\Debug\Utilities.pdb
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\obj\Debug\Utilities.csprojResolveAssemblyReference.cache
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\obj\Debug\Utilities.Properties.Resources.resources
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\obj\Debug\Utilities.csproj.GenerateResource.Cache
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\obj\Debug\Utilities.dll
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\obj\Debug\Utilities.pdb
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\bin\Debug\log4net.dll
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\bin\Debug\MicroMvvm.dll
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\bin\Debug\Newtonsoft.Json.dll
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\bin\Debug\NPOI.dll
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\bin\Debug\PC_Futures.Models.dll
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\bin\Debug\PC_Futures.Models.pdb
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\bin\Debug\Abt.Controls.SciChart.Wpf.dll
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\bin\Debug\Futures.Enum.dll
+F:\pc\new\net.futures.PC\PC_Futures\Utilities\bin\Debug\Futures.Enum.pdb

@@ -1,0 +1,561 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PC_Futures.ANXINYI.ControlStyles">
+
+    <!--买入未选中自定义颜色-->
+    <LinearGradientBrush x:Key="LinearGradientBlueBackground" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#c10808" Offset="0.4" />
+        <GradientStop Color="#FF3232" Offset="0.6" />
+        <GradientStop Color="#c10808" Offset="1" />
+    </LinearGradientBrush>
+ 
+    <!--END-->
+    <!--买入选中自定义颜色-->
+    <LinearGradientBrush x:Key="LGradientBlueBackground" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#a20808" Offset="0.4" />
+        <GradientStop Color="#dd2222" Offset="0.6" />
+        <GradientStop Color="#a20808" Offset="1" />
+    </LinearGradientBrush>
+  
+    <!--END-->
+    <!--买入按钮-->
+    <Style x:Key="BuyButton" TargetType="{x:Type Button}" >
+        <Setter Property="Background" Value="{StaticResource LinearGradientBlueBackground}"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="BorderBrush" Value="#C21212"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" 
+                                SnapsToDevicePixels="true">
+                        <ContentPresenter x:Name="contentPresenter" 
+                                              Focusable="False" 
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              Margin="{TemplateBinding Padding}" 
+                                              RecognizesAccessKey="True" 
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"  />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="#ef4646"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="1"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#c21111"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource LGradientBlueBackground}"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="1"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#c21111"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!--卖出未选中自定义颜色-->
+    <LinearGradientBrush x:Key="sellLinearGradientBlueBackground" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#0a68dd" Offset="0" />
+        <GradientStop Color="#088def" Offset="0.5" />
+        <GradientStop Color="#0a68dd" Offset="1" />
+    </LinearGradientBrush>
+
+    <!--END-->
+    <!--卖出选中自定义颜色-->
+    <LinearGradientBrush x:Key="sellLGradientBlueBackground" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#1062c0" Offset="0" />
+        <GradientStop Color="#0f78da" Offset="0.5" />
+        <GradientStop Color="#1062c0" Offset="1" />
+    </LinearGradientBrush>
+    <!--卖出按钮-->
+    <Style x:Key="SellButton" TargetType="{x:Type Button}" >
+        <Setter Property="Background" Value="{StaticResource sellLinearGradientBlueBackground}"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="BorderBrush" Value="#1f4cbf"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" 
+                                SnapsToDevicePixels="true">
+                        <ContentPresenter x:Name="contentPresenter" 
+                                              Focusable="False" 
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              Margin="{TemplateBinding Padding}" 
+                                              RecognizesAccessKey="True" 
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"  />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="#5db6f7"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="1"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#1f4cbf"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource sellLGradientBlueBackground}"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="1"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#1f4cbf"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--复位-->
+    <Style x:Key="RestorationButton" TargetType="{x:Type Button}" >
+        <Setter Property="Background" Value="#C9c6c6"></Setter>
+        <Setter Property="Foreground" Value="Black"></Setter>
+        <Setter Property="BorderBrush" Value="#666666"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" 
+                                SnapsToDevicePixels="true">
+                        <ContentPresenter x:Name="contentPresenter" 
+                                              Focusable="False" 
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              Margin="{TemplateBinding Padding}" 
+                                              RecognizesAccessKey="True" 
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"  />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="#d0d0d0"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="1"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#000000"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="#9f9f9f"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="1"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#666666"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--撤单选中自定义颜色-->
+    <LinearGradientBrush x:Key="OrderCancelLinearGradientBlueBackground" EndPoint="1,1" StartPoint="1,0">
+        <GradientStop Color="#f0f0f0" Offset="0.5" />
+      
+        <GradientStop Color="#bfc9df" Offset="1" />
+    </LinearGradientBrush>
+
+    <!--END-->
+    <!--撤单选中自定义颜色-->
+    <LinearGradientBrush x:Key="OrderCancelLGradientBlueBackground" EndPoint="1,1" StartPoint="1,0">
+        <GradientStop Color="#d9dfea" Offset="0.5" />
+
+        <GradientStop Color="#909cb7" Offset="1" />
+    </LinearGradientBrush>
+
+    <Style x:Key="OrderCancelButton" TargetType="{x:Type Button}" >
+        <Setter Property="Background" Value="{StaticResource OrderCancelLinearGradientBlueBackground}"></Setter>
+        <Setter Property="Foreground" Value="#0a51bc"></Setter>
+        <Setter Property="BorderBrush" Value="#0068b7"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"  CornerRadius="2,2,2,2" Background="{TemplateBinding Background}" 
+                                SnapsToDevicePixels="true">
+                        <ContentPresenter x:Name="contentPresenter" 
+                                              Focusable="False" 
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              Margin="{TemplateBinding Padding}" 
+                                              RecognizesAccessKey="True" 
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"  />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="#a8b3c9"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="1"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#0068b7"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource OrderCancelLGradientBlueBackground}"/>
+                            <Setter Property="BorderThickness" TargetName="border" Value="1"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#0d69ae"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>            
+        </Setter>
+    </Style>
+    <!--登陆-->
+    <!--<Style x:Key="LoginButton" TargetType="{x:Type Button}" >
+        <Setter Property="Background" Value="#1d52de"></Setter>
+        <Setter Property="Foreground" Value="Black"></Setter>
+ 
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="3" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" 
+                                SnapsToDevicePixels="true">
+                        <ContentPresenter x:Name="contentPresenter" 
+                                              Focusable="False" 
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              Margin="{TemplateBinding Padding}" 
+                                              RecognizesAccessKey="True" 
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"  />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="#5378d7"/>
+               
+                    
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="#274aa7"/>
+                         
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+
+    <Style x:Key="LoginButton" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="197"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Image Name="btnbg" Stretch="Fill" Source="../Resources/Images/dl_moren.png" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source"  Value="../Resources/Images/dl_xuanfu.png" TargetName="btnbg" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="../Resources/Images/dl_dianji.png" TargetName="btnbg" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Source" Value="../Resources/Images/dl_moren.png" TargetName="btnbg" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="EnterButton" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="119"/>
+        <Setter Property="Height" Value="29"/>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Image Name="btnbg" Stretch="Fill" Source="../Resources/Images/qd_moren.png" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source"  Value="../Resources/Images/qd_xuafu.png" TargetName="btnbg" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="../Resources/Images/qd_dianji.png" TargetName="btnbg" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Source" Value="../Resources/Images/qd_moren.png" TargetName="btnbg" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="CannelButton" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="119"/>
+        <Setter Property="Height" Value="29"/>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Image Name="btnbg" Stretch="Fill" Source="../Resources/Images/qx_moren.png" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source"  Value="../Resources/Images/qx_xuanfu.png" TargetName="btnbg" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="../Resources/Images/qx_dianji.png" TargetName="btnbg" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Source" Value="../Resources/Images/qx_moren.png" TargetName="btnbg" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--撤单选中自定义颜色-->
+    <LinearGradientBrush x:Key="AddLinearGradientBlueBackground" EndPoint="1,1" StartPoint="1,0">
+        <GradientStop Color="#90ceff" Offset="0.5" />
+
+        <GradientStop Color="#0078d7" Offset="1" />
+    </LinearGradientBrush>
+
+    <!--END-->
+    <!--撤单选中自定义颜色-->
+    <LinearGradientBrush x:Key="AddLGradientBlueBackground" EndPoint="1,1" StartPoint="1,0">
+        <GradientStop Color="#36a2f9" Offset="0.5" />
+
+        <GradientStop Color="#03599c" Offset="1" />
+    </LinearGradientBrush>
+    <!--END-->
+    <!--撤单选中自定义颜色-->
+    <LinearGradientBrush x:Key="AddLGradientBlueBackgroundenter" EndPoint="1,1" StartPoint="1,0">
+        <GradientStop Color="#0a3f74" Offset="0.5" />
+
+        <GradientStop Color="#2c82ea" Offset="1" />
+    </LinearGradientBrush>
+    <Style x:Key="EnterButton1" TargetType="{x:Type Button}" >
+        <Setter Property="Background" Value="{StaticResource AddLinearGradientBlueBackground}"></Setter>
+        <Setter Property="Foreground" Value="#0a51bc"></Setter>
+        <Setter Property="BorderBrush" Value="#0068b7"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"  CornerRadius="2,2,2,2" Background="{TemplateBinding Background}" 
+                                SnapsToDevicePixels="true">
+                        <ContentPresenter x:Name="contentPresenter" 
+                                              Focusable="False" 
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              Margin="{TemplateBinding Padding}" 
+                                              RecognizesAccessKey="True" 
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"  />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource AddLGradientBlueBackground}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{DynamicResource AddLGradientBlueBackgroundenter}"/>
+                            
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="AddButton" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="119"/>
+        <Setter Property="Height" Value="29"/>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Image Name="btnbg" Stretch="Fill" Source="../Resources/Images/zengjia_moren.png" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source"  Value="../Resources/Images/zengjia_xuanfu.png" TargetName="btnbg" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="../Resources/Images/zengjia_dianji.png" TargetName="btnbg" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Source" Value="../Resources/Images/zengjia_moren.png" TargetName="btnbg" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="DeleteButton" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="119"/>
+        <Setter Property="Height" Value="29"/>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Image Name="btnbg" Stretch="Fill" Source="../Resources/Images/shanchu_moren.png" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source"  Value="../Resources/Images/shanchu_xuanfu.png" TargetName="btnbg" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="../Resources/Images/shanchu_dianji.png" TargetName="btnbg" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Source" Value="../Resources/Images/shanchu_moren.png" TargetName="btnbg" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="DeleteAllButton" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="26"/>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Image Name="btnbg" Stretch="Fill" Source="../Resources/Images/moren.png" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source"  Value="../Resources/Images/xuanfu.png" TargetName="btnbg" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="../Resources/Images/dianji.png" TargetName="btnbg" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Source" Value="../Resources/Images/moren.png" TargetName="btnbg" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TraLoginButton" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#90ceff" Offset="0" />
+                    <GradientStop Color="#0078d7" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush" Value="#0078d7"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="Transparent">
+                        <Border x:Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" >
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0,2"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="PART_Border">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <GradientStop Color="#36a2f9" Offset="0" />
+                                        <GradientStop Color="#03599c" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="BorderBrush" Value="#0078d7" TargetName="PART_Border"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="PART_Border">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <GradientStop Color="#2c82ea" Offset="0" />
+                                        <GradientStop Color="#0a3f74" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="BorderBrush" Value="#0078d7" TargetName="PART_Border"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="PART_Border">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <GradientStop Color="#36a2f9" Offset="0" />
+                                        <GradientStop Color="#03599c" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="BorderBrush" Value="#0078d7" TargetName="PART_Border"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="TraExitButton" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#ebf4fc" Offset="0" />
+                    <GradientStop Color="#dcdcdc" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush" Value="#a0a0a0"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="Transparent">
+                        <Border x:Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" >
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,2"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="PART_Border">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <GradientStop Color="#d9e6f2" Offset="0" />
+                                        <GradientStop Color="#c0c0c0" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="BorderBrush" Value="#a0a0a0" TargetName="PART_Border"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="PART_Border">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <GradientStop Color="#cddbe8" Offset="0" />
+                                        <GradientStop Color="#b5b5b5" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="BorderBrush" Value="#a0a0a0" TargetName="PART_Border"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="PART_Border">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <GradientStop Color="#ebf4fc" Offset="0" />
+                                        <GradientStop Color="#dcdcdc" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="BorderBrush" Value="#a0a0a0" TargetName="PART_Border"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="DaochuButton" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Height" Value="21"/>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Image Name="btnbg" Stretch="Fill" Source="../Resources/Images/daochu.png" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source"  Value="../Resources/Images/daochu.png" TargetName="btnbg" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="../Resources/Images/daochu.png" TargetName="btnbg" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Source" Value="../Resources/Images/daochu.png" TargetName="btnbg" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,12 @@
+F:\pc\net.futures.pc\net.futures.pc\PC_Futures.Models\bin\Debug\PC_Futures.Models.dll
+F:\pc\net.futures.pc\net.futures.pc\PC_Futures.Models\bin\Debug\PC_Futures.Models.pdb
+F:\pc\net.futures.pc\net.futures.pc\PC_Futures.Models\obj\Debug\PC_Futures.Models.dll
+F:\pc\net.futures.pc\net.futures.pc\PC_Futures.Models\obj\Debug\PC_Futures.Models.pdb
+F:\pc\net.futures.pc\hengxi\PC_Futures.Models\bin\Debug\PC_Futures.Models.dll
+F:\pc\net.futures.pc\hengxi\PC_Futures.Models\bin\Debug\PC_Futures.Models.pdb
+F:\pc\net.futures.pc\hengxi\PC_Futures.Models\obj\Debug\PC_Futures.Models.dll
+F:\pc\net.futures.pc\hengxi\PC_Futures.Models\obj\Debug\PC_Futures.Models.pdb
+F:\pc\new\net.futures.PC\PC_Futures\PC_Futures.Models\bin\Debug\PC_Futures.Models.dll
+F:\pc\new\net.futures.PC\PC_Futures\PC_Futures.Models\bin\Debug\PC_Futures.Models.pdb
+F:\pc\new\net.futures.PC\PC_Futures\PC_Futures.Models\obj\Debug\PC_Futures.Models.dll
+F:\pc\new\net.futures.PC\PC_Futures\PC_Futures.Models\obj\Debug\PC_Futures.Models.pdb

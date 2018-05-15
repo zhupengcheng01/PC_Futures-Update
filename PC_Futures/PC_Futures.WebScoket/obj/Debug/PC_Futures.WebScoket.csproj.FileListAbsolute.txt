@@ -1,0 +1,9 @@
+F:\pc\new\net.futures.PC\PC_Futures\PC_Futures.WebScoket\obj\Debug\PC_Futures.WebScoket.csprojResolveAssemblyReference.cache
+F:\pc\new\net.futures.PC\PC_Futures\PC_Futures.WebScoket\bin\Debug\PC_Futures.WebScoket.dll
+F:\pc\new\net.futures.PC\PC_Futures\PC_Futures.WebScoket\bin\Debug\PC_Futures.WebScoket.pdb
+F:\pc\new\net.futures.PC\PC_Futures\PC_Futures.WebScoket\bin\Debug\Newtonsoft.Json.dll
+F:\pc\new\net.futures.PC\PC_Futures\PC_Futures.WebScoket\bin\Debug\PC_Futures.Models.dll
+F:\pc\new\net.futures.PC\PC_Futures\PC_Futures.WebScoket\bin\Debug\websocket-sharp.dll
+F:\pc\new\net.futures.PC\PC_Futures\PC_Futures.WebScoket\bin\Debug\PC_Futures.Models.pdb
+F:\pc\new\net.futures.PC\PC_Futures\PC_Futures.WebScoket\obj\Debug\PC_Futures.WebScoket.dll
+F:\pc\new\net.futures.PC\PC_Futures\PC_Futures.WebScoket\obj\Debug\PC_Futures.WebScoket.pdb

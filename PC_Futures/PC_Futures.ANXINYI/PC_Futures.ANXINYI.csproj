@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BCECE493-5152-4F85-9F2A-212F6BB7B2D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PC_Futures.ANXINYI</RootNamespace>
+    <AssemblyName>PC_Futures.ANXINYI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Abt.Controls.SciChart.Wpf, Version=3.1.0.4549, Culture=neutral, PublicKeyToken=b55dd9efe817e823, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Depends\Abt.Controls.SciChart.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Depends\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MicroMvvm">
+      <HintPath>..\Depends\MicroMvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Depends\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\Depends\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\Depends\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BankTransfer\UCBankTransfer.xaml.cs">
+      <DependentUpon>UCBankTransfer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConditionBill\UCConditionBill.xaml.cs">
+      <DependentUpon>UCConditionBill.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ParameterSetting\ParameterSetting.xaml.cs">
+      <DependentUpon>ParameterSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Position\UCPositionAll.xaml.cs">
+      <DependentUpon>UCPositionAll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="QuotesControls\ContractDetailInfo.xaml.cs">
+      <DependentUpon>ContractDetailInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuotesControls\QuotesDataGrid.xaml.cs">
+      <DependentUpon>QuotesDataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuotesControls\QuotesTabControl.xaml.cs">
+      <DependentUpon>QuotesTabControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuotesControls\StockTicker.xaml.cs">
+      <DependentUpon>StockTicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Select\UCSelect.xaml.cs">
+      <DependentUpon>UCSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TodayTrader\UCTodayTrader.xaml.cs">
+      <DependentUpon>UCTodayTrader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\TransactionPannel.xaml.cs">
+      <DependentUpon>TransactionPannel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\UCOrderCancel.xaml.cs">
+      <DependentUpon>UCOrderCancel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\UCPosition.xaml.cs">
+      <DependentUpon>UCPosition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\UCTransaction.xaml.cs">
+      <DependentUpon>UCTransaction.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Content Include="config.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultUserData.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ParameterSetting.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FuturesSite\TradeSite.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Content Include="UserData.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="SQLiteData\AutoStopLoss.min" />
+    <Resource Include="Resources\FontType\Mittelschrift.ttf" />
+    <None Include="Resources\FontType\svgasys.fon" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="BankTransfer\UCBankTransfer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ConditionBill\UCConditionBill.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ControlStyles\ButtonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ControlStyles\CommboxStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ControlStyles\CommonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ControlStyles\ControlStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ControlStyles\DataGridStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ParameterSetting\ParameterSetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Position\UCPositionAll.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QuotesControls\ContractDetailInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QuotesControls\QuotesDataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QuotesControls\QuotesTabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="QuotesControls\StockTicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Select\UCSelect.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TodayTrader\UCTodayTrader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transaction\TransactionPannel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transaction\UCOrderCancel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transaction\UCPosition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction\UCTransaction.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Futures.Enum\Futures.Enum.csproj">
+      <Project>{17E1BE4B-84BD-42E4-B44F-7DCC90A11FE3}</Project>
+      <Name>Futures.Enum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PC_Futures.Models\PC_Futures.Models.csproj">
+      <Project>{E0AC6564-DE2D-4F8B-876C-CCA59B05BD27}</Project>
+      <Name>PC_Futures.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PC_Futures.ViewModel\PC_Futures.ViewModel.csproj">
+      <Project>{9fb2a8c7-f3f2-4ba1-9d80-5f80d31183e9}</Project>
+      <Name>PC_Futures.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PC_Futures.WebScoket\PC_Futures.WebScoket.csproj">
+      <Project>{2C1118BF-4F10-486F-9383-A86A6DB11D63}</Project>
+      <Name>PC_Futures.WebScoket</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{a8d9572a-2633-4dcd-b92b-451550e5c755}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ico\Ico1.ico" />
+    <Resource Include="Resources\ico\ico2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\bejing.png" />
+    <Resource Include="Resources\Images\canshusz_wxz.png" />
+    <Resource Include="Resources\Images\chanxun_wxz.png" />
+    <Resource Include="Resources\Images\chanxun_xz.png" />
+    <Resource Include="Resources\Images\chengjiao_wxz.png" />
+    <Resource Include="Resources\Images\chengjiao_xz.png" />
+    <Resource Include="Resources\Images\chicang_wxz.png" />
+    <Resource Include="Resources\Images\chicang_xz.png" />
+    <Resource Include="Resources\Images\daochu.png" />
+    <Resource Include="Resources\Images\day.png" />
+    <Resource Include="Resources\Images\delete.png" />
+    <Resource Include="Resources\Images\dianji.png" />
+    <Resource Include="Resources\Images\dl_dianji.png" />
+    <Resource Include="Resources\Images\dl_moren.png" />
+    <Resource Include="Resources\Images\dl_xuanfu.png" />
+    <Resource Include="Resources\Images\fifteen.png" />
+    <Resource Include="Resources\Images\five.png" />
+    <Resource Include="Resources\Images\fourhours.png" />
+    <Resource Include="Resources\Images\ico_system_close.png" />
+    <Resource Include="Resources\Images\ico_system_maximize.png" />
+    <Resource Include="Resources\Images\ico_system_minimize.png" />
+    <Resource Include="Resources\Images\ico_system_restore.png" />
+    <Resource Include="Resources\Images\jiaoyi_guanb.png" />
+    <Resource Include="Resources\Images\jiaoyi_guanbi.png" />
+    <Resource Include="Resources\Images\jiaoyi_suod.png" />
+    <Resource Include="Resources\Images\jiaoyi_wxz.png" />
+    <Resource Include="Resources\Images\jiaoyi_xz.png" />
+    <Resource Include="Resources\Images\jioayi_shuax.png" />
+    <Resource Include="Resources\Images\load_data.png" />
+    <Resource Include="Resources\Images\moren.png" />
+    <Resource Include="Resources\Images\mouth.png" />
+    <Resource Include="Resources\Images\one.png" />
+    <Resource Include="Resources\Images\qd_dianji.png" />
+    <Resource Include="Resources\Images\qd_moren.png" />
+    <Resource Include="Resources\Images\qd_xuafu.png" />
+    <Resource Include="Resources\Images\qx_dianji.png" />
+    <Resource Include="Resources\Images\qx_moren.png" />
+    <Resource Include="Resources\Images\qx_xuanfu.png" />
+    <Resource Include="Resources\Images\shanchu_dianji.png" />
+    <Resource Include="Resources\Images\shanchu_moren.png" />
+    <Resource Include="Resources\Images\shanchu_xuanfu.png" />
+    <Resource Include="Resources\Images\shouqo-right.png" />
+    <Resource Include="Resources\Images\shouye-zuliao.png" />
+    <Resource Include="Resources\Images\shouye_back.png" />
+    <Resource Include="Resources\Images\shouye_baujia.png" />
+    <Resource Include="Resources\Images\shouye_fd.png" />
+    <Resource Include="Resources\Images\shouye_house.png" />
+    <Resource Include="Resources\Images\shouye_left.png" />
+    <Resource Include="Resources\Images\shouye_right.png" />
+    <Resource Include="Resources\Images\shouye_shuax.png" />
+    <Resource Include="Resources\Images\shoye_Kxian.png" />
+    <Resource Include="Resources\Images\sixty.png" />
+    <Resource Include="Resources\Images\sjouye_sx.png" />
+    <Resource Include="Resources\Images\taojiandan_wxz.png" />
+    <Resource Include="Resources\Images\taojiandan_xz.png" />
+    <Resource Include="Resources\Images\tc_dianji.png" />
+    <Resource Include="Resources\Images\tc_moren.png" />
+    <Resource Include="Resources\Images\tc_xuanfu.png" />
+    <Resource Include="Resources\Images\thirty.png" />
+    <Resource Include="Resources\Images\three.png" />
+    <Resource Include="Resources\Images\TitleImg.png" />
+    <Resource Include="Resources\Images\TitleLog\denglu_bg.png" />
+    <Resource Include="Resources\Images\TitleLog\TitleImg.png" />
+    <Resource Include="Resources\Images\trd_dianji.png" />
+    <Resource Include="Resources\Images\trd_moren.png" />
+    <Resource Include="Resources\Images\trd_xuanfu.png" />
+    <Resource Include="Resources\Images\twohours.png" />
+    <Resource Include="Resources\Images\week.png" />
+    <Resource Include="Resources\Images\weituo_wxz.png" />
+    <Resource Include="Resources\Images\weituo_xz.png" />
+    <Resource Include="Resources\Images\xuanfu.png" />
+    <Resource Include="Resources\Images\Y.png" />
+    <Resource Include="Resources\Images\yinqizhuanz_wxz.png" />
+    <Resource Include="Resources\Images\yinqizhuanz_xz.png" />
+    <Resource Include="Resources\Images\zengjia_dianji.png" />
+    <Resource Include="Resources\Images\zengjia_moren.png" />
+    <Resource Include="Resources\Images\zengjia_xuanfu.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

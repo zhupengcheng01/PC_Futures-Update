@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A8D9572A-2633-4DCD-B92B-451550E5C755}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Utilities</RootNamespace>
+    <AssemblyName>Utilities</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Abt.Controls.SciChart.Wpf, Version=3.1.0.4549, Culture=neutral, PublicKeyToken=b55dd9efe817e823, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Depends\Abt.Controls.SciChart.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Depends\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MicroMvvm">
+      <HintPath>..\Depends\MicroMvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Depends\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\Depends\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppUtils.cs" />
+    <Compile Include="Comm\ContractVariety.cs" />
+    <Compile Include="Comm\ControlResizer.cs" />
+    <Compile Include="Comm\MD5Helper.cs" />
+    <Compile Include="Comm\ServerStatusInfoHelper.cs" />
+    <Compile Include="Comm\TradeInfoHelper.cs" />
+    <Compile Include="Comm\UserInfoHelper.cs" />
+    <Compile Include="DataConvert\BoolToValueConverter.cs" />
+    <Compile Include="DataConvert\BSToValueConverter.cs" />
+    <Compile Include="DataConvert\ColorToBrushConverter.cs" />
+    <Compile Include="DataConvert\ColorToValueConvert.cs" />
+    <Compile Include="DataConvert\DataAndTimeConvert.cs" />
+    <Compile Include="DataConvert\DataColorConver.cs" />
+    <Compile Include="DataConvert\NaNConverter.cs" />
+    <Compile Include="DataConvert\OFFSETTypeToValue.cs" />
+    <Compile Include="DataConvert\StateToValueConverter.cs" />
+    <Compile Include="DataConvert\StrToColorValueConverter.cs" />
+    <Compile Include="DatePickerCalendar.cs" />
+    <Compile Include="ExprotHelper.cs" />
+    <Compile Include="HttpRequestContractHelper.cs" />
+    <Compile Include="IniHelper.cs" />
+    <Compile Include="KeyValue.cs" />
+    <Compile Include="LogHelper.cs" />
+    <Compile Include="ParameterSetting\CommParameterSetting.cs" />
+    <Compile Include="PasswordBoxHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RSAEncryption.cs" />
+    <Compile Include="SoundPlayerHelper.cs" />
+    <Compile Include="UserControlHelper.cs" />
+    <Compile Include="ValidCode.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="log4net.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="QuotesModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Futures.Enum\Futures.Enum.csproj">
+      <Project>{17e1be4b-84bd-42e4-b44f-7dcc90a11fe3}</Project>
+      <Name>Futures.Enum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PC_Futures.Models\PC_Futures.Models.csproj">
+      <Project>{e0ac6564-de2d-4f8b-876c-cca59b05bd27}</Project>
+      <Name>PC_Futures.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

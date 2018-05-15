@@ -1,0 +1,392 @@
+﻿<Window xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"  x:Class="PC_Futures.ANXINYI.ParameterSetting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PC_Futures.ANXINYI"
+         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+        mc:Ignorable="d"
+        
+        Title="参数设置" Height="400" Width="630" WindowStyle="ToolWindow" ResizeMode="NoResize"  WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ControlStyles/ButtonStyles.xaml"/>
+                <ResourceDictionary Source="/ControlStyles/CommboxStyles.xaml"/>
+                <ResourceDictionary Source="/ControlStyles/ControlStyles.xaml"/>
+                <ResourceDictionary Source="/ControlStyles/DataGridStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TabControl   BorderBrush="#2C8FDD" Margin="0,0,0,0" Height="300" VerticalAlignment="Bottom">
+            <TabItem Header="止盈止损设置">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0">
+                        <ComboBox Width="80" Name="comStopLoss" Margin="10,0,0,0" SelectedIndex="0" Text="{Binding StopLossModelViewModel.StopLossPrice}"  >
+                            <ComboBoxItem Content="最新价"/>
+                            <ComboBoxItem Content="对手价"/>
+                        </ComboBox>
+                        <TextBlock Margin="10,0,0,0" Text="达到或超过指定价时,触发止损/止盈。"/>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1">
+                        <TextBlock Text="止损/止盈时按照"></TextBlock>
+                        <ComboBox Width="80" Name="StopLossDelegation"  Text="{Binding StopLossModelViewModel.StopLossDelegation}" Margin="10,0,0,0" SelectedIndex="0" >
+                            <ComboBoxItem Content="市价"/>
+                            <ComboBoxItem Content="最新价"/>
+                            <ComboBoxItem Content="对手价"/>
+
+                        </ComboBox>
+                        <TextBlock  Margin="10,0,0,0" Text="发出委托。"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" IsEnabled="{Binding  StopLossModelViewModel.IsReadOnly}" VerticalAlignment="Center" Grid.Row="2">
+                        <CheckBox Name="ckBuy" IsChecked="{Binding StopLossModelViewModel.CkBuy}" />
+                        <TextBlock Margin="5,0,0,0"  Text="买入调整"></TextBlock>
+                        <xctk:IntegerUpDown Width="60" Name="xctkBuy" Value="{Binding StopLossModelViewModel.BuyNum}" Minimum="0" Margin="10,0,0,0" Text="0"/>
+                        <TextBlock  Margin="10,0,0,0" Text="个价位发出委托。(仅对手价,最新价有效)"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" IsEnabled="{Binding  StopLossModelViewModel.IsReadOnly}" VerticalAlignment="Center" Grid.Row="3">
+                        <CheckBox Name="ckSell" IsChecked="{Binding StopLossModelViewModel.CkSell}" />
+                        <TextBlock Margin="5,0,0,0"  Text="卖出调整"></TextBlock>
+                        <xctk:IntegerUpDown Width="60" Name="xctkSell" Minimum="0" Value="{Binding StopLossModelViewModel.SellNum}" Margin="10,0,0,0" Text="0"/>
+                        <TextBlock  Margin="10,0,0,0" Text="个价位发出委托。(仅对手价,最新价有效)"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="4">
+                        <TextBlock Margin="5,0,0,0"  Text="止盈止损默认有效期"></TextBlock>
+                        <TextBox IsReadOnly="True" Text="触发前永久有效" Width="120"  Margin="10,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></TextBox>
+                    </StackPanel>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="自动止盈止损设置">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DataGrid  VerticalAlignment="Top" AutoGenerateColumns="False"  Style="{StaticResource DataGridStyle1}"   Name="grid" ItemsSource="{Binding Aslmvm, Mode=TwoWay}"  SelectedItem="{Binding SelectedItem}" CanUserAddRows="False" >
+                        <DataGrid.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="White" />
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn   Header="品种"  Width="100" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding Path=VarietySelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                                                       Width="100" Margin="0,0,0,0" VerticalAlignment="Center"  HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <xctk:WatermarkComboBox Margin="0,0,0,0" Width="100" VerticalAlignment="Bottom" ItemsSource="{Binding Variety,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding VarietySelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="22">
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="SelectionChanged">
+                                                        <i:InvokeCommandAction Command="{Binding VarietyChangedCommand}" />
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </xctk:WatermarkComboBox>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn   Header="合约号"  Width="140" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding Path=Agreement,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Width="140" Margin="0,0,0,0" VerticalAlignment="Center"  HorizontalAlignment="Center"  />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <xctk:WatermarkComboBox Margin="0,0,0,0" Width="140" ItemsSource="{Binding ContractCode,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding ContractCodeSelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="SysVarietyCode" DisplayMemberPath="SystemName"
+                            VerticalAlignment="Bottom"  Height="22">
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="SelectionChanged">
+                                                        <i:InvokeCommandAction Command="{Binding AgreementChangedCommand}" />
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </xctk:WatermarkComboBox>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn   Header="方向"  Width="80" >
+
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <ComboBox Width="80" Name="StopLossDelegation" Margin="0,0,0,0" Text="{Binding Path=Direction,Mode=TwoWay}" SelectedIndex="0" >
+                                                <ComboBoxItem Content="买"/>
+                                                <ComboBoxItem Content="卖"/>
+
+                                            </ComboBox>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <!--<DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <ComboBox Width="80" Name="StopLossDelegation" Margin="10,0,0,0" Text="{Binding Path=Direction,Mode=TwoWay}" SelectedIndex="0" >
+                                                <ComboBoxItem Content="买"/>
+                                                <ComboBoxItem Content="卖"/>
+
+                                            </ComboBox>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>-->
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="止损点位"  Width="90">
+
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <!--<xctk:IntegerUpDown Value="{Binding  Path=StopLossPotion,Mode=TwoWay}" Width="120" Margin="0,0,0,0" Minimum="0" VerticalAlignment="Center" HorizontalAlignment="Center"   />-->
+                                            <TextBlock Text="{Binding Path=StopLossPotion,Mode=TwoWay}"  Width="90" Margin="0,0,0,0" VerticalAlignment="Center"  HorizontalAlignment="Center"  />
+
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <xctk:IntegerUpDown Value="{Binding  Path=StopLossPotion,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="90" Minimum="0" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"   />
+
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="止盈点位"  Width="90">
+
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <!--<xctk:IntegerUpDown Value="{Binding  Path=StopProfitPotion,Mode=TwoWay}" Width="120" Margin="0,0,0,0"  Minimum="0" VerticalAlignment="Center" HorizontalAlignment="Center"   />-->
+                                            <TextBlock Text="{Binding Path=StopProfitPotion,Mode=TwoWay}"  Width="90" Margin="0,0,0,0" VerticalAlignment="Center"  HorizontalAlignment="Center"  />
+
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <xctk:IntegerUpDown Value="{Binding  Path=StopProfitPotion,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Minimum="0" Width="90" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"   />
+
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn  Header="浮动止损点位"  Width="100">
+
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <TextBlock Text="{Binding Path=FloatingProfitAndLoss,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Width="100" Margin="0,0,0,0" VerticalAlignment="Center"  HorizontalAlignment="Center"  />
+                                            <!--<xctk:IntegerUpDown Value="{Binding  Path=FloatingProfitAndLoss,Mode=TwoWay}" Width="120" Margin="0,0,0,0"  Minimum="0" VerticalAlignment="Center" HorizontalAlignment="Center"   />-->
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate >
+                                        <Border>
+                                            <xctk:IntegerUpDown Value="{Binding  Path=FloatingProfitAndLoss,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100" Minimum="0" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"   />
+
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Border Grid.Row="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="textBox" Grid.Column="0" HorizontalAlignment="Left" Height="23" Margin="10,0" TextWrapping="Wrap"  Foreground="#1F1FFF" Text="注:填0表示不使用该功能" VerticalAlignment="Top" />
+                            <Border Grid.Column="1">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Button  Style="{StaticResource EnterButton1}"  Width="80" Foreground="White"  Content="增加"   HorizontalAlignment="Center" VerticalAlignment="Center" Name="Add" Margin="0,0,20,0" Height="30" Command="{Binding AddCommand}"></Button>
+                                    <Button Style="{StaticResource EnterButton1}"  Width="80" Foreground="White"  Content="删除"   HorizontalAlignment="Right" Margin="20,0,20,0"  Name="Delete" VerticalAlignment="Center"  Command="{Binding DeleteCommand}" Height="30"  ></Button>
+
+
+                                </StackPanel>
+                            </Border>
+
+                        </Grid>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Header="下单面板设置">
+                <Grid>
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0">
+                        <CheckBox Name="ckOrderEnter" Content="下单前确认"  IsChecked="{Binding OrderVersion.BeforeOrderEnter}"/>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1">
+
+                        <TextBlock Margin="5,0,0,0"  Text="开仓手数:"  FontWeight="Bold"></TextBlock>
+
+                    </StackPanel>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" >
+
+                            <TextBlock Margin="5,0,0,0"  Text="默认开仓手数:"></TextBlock>
+                            <xctk:IntegerUpDown Width="60"  Minimum="0" Value="{Binding OrderVersion.DefaultLot}" Text="0" Name="defultLot" Margin="10,0,0,0"/>
+
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"  Grid.Column="1" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" >
+
+                            <TextBlock Margin="5,0,0,0"  Text="报单最大手数:"></TextBlock>
+                            <xctk:IntegerUpDown Width="60" Text="0" Minimum="0" Value="{Binding OrderVersion.MaxLot}" Name="maxLot" Margin="10,0,0,0"/>
+
+                        </StackPanel>
+                    </Grid>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="快捷键设置">
+                <Grid>
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0">
+                        <CheckBox Name="ckLockMenu" Content="快捷键操作时锁定下单板" IsChecked="{Binding ShortcutKey.LockMenu}" />
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1">
+
+                        <TextBlock Margin="5,0,0,0"  Text="买开:"></TextBlock>
+                        <TextBox Width="120" Name="BuyOpen" Text="{Binding ShortcutKey.BuyOpen}"  MaxLength="1" Margin="10,0,0,0" PreviewKeyDown="BuyOpen_PreviewKeyDown"></TextBox>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2">
+
+                        <TextBlock Margin="5,0,0,0"  Text="卖开:"></TextBlock>
+                        <TextBox Width="120" Name="SellOpen"  Text="{Binding ShortcutKey.SellOpen}"  PreviewKeyDown="SellOpen_PreviewKeyDown"  MaxLength="1" Margin="10,0,0,0"></TextBox>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3">
+
+                        <TextBlock Margin="5,0,0,0"  Text="买平:"></TextBlock>
+                        <TextBox Width="120" Name="ClosingBuy"  Text="{Binding ShortcutKey.ClosingBuy}"  PreviewKeyDown="ClosingBuy_PreviewKeyDown"  MaxLength="1" Margin="10,0,0,0"></TextBox>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="4">
+                        <TextBlock Margin="5,0,0,0"  Text="卖平:"></TextBlock>
+                        <TextBox Width="120" Name="ClosingSell"  Text="{Binding ShortcutKey.ClosingSell}"  PreviewKeyDown="ClosingSell_PreviewKeyDown"  MaxLength="1" Margin="10,0,0,0"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="5">
+
+                        <TextBlock Margin="5,0,0,0"  Text="撤单:"></TextBlock>
+                        <TextBox Width="120" Name="Revoke"  Text="{Binding ShortcutKey.Revoke}"  PreviewKeyDown="Revoke_PreviewKeyDown"  MaxLength="1" Margin="10,0,0,0"></TextBox>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="6">
+
+                        <TextBlock Margin="5,0,0,0"  Text="清仓:"></TextBlock>
+                        <TextBox Width="120" Name="Clearance"  Text="{Binding ShortcutKey.Clearance}" PreviewKeyDown="Clearance_PreviewKeyDown"  MaxLength="1" Margin="10,0,0,0"></TextBox>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="7">
+
+                        <TextBlock Margin="5,0,0,0"  Text="注:快捷下单只针对下单板锁定合约，以快速价成交" Foreground="#0000FF"></TextBlock>
+
+
+                    </StackPanel>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="消息提示设置">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"></RowDefinition>
+
+                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1">
+
+                        <TextBlock Margin="5,0,0,0"  Text="成交提示:"></TextBlock>
+                        <ComboBox Width="120" Margin="10,0,0,0" Name="CJHint" Text="{Binding MessageAlert.TradeAlert}" SelectedIndex="0">
+                            <ComboBoxItem Content="不提示"/>
+                            <ComboBoxItem  Content="窗口提示"/>
+                            <ComboBoxItem Content="声音提示"/>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2">
+
+                        <TextBlock Margin="5,0,0,0"  Text="下单提示:"></TextBlock>
+                        <ComboBox Width="120"  Margin="10,0,0,0" Name="XDHint" Text="{Binding MessageAlert.OrderAlert}" SelectedIndex="0">
+                            <ComboBoxItem Content="不提示"/>
+                            <ComboBoxItem  Content="窗口提示"/>
+                            <ComboBoxItem Content="声音提示"/>
+                        </ComboBox>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"  Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3">
+
+                        <TextBlock Margin="5,0,0,0"  Text="撤单提示:"></TextBlock>
+                        <ComboBox Width="120" Margin="10,0,0,0" Name="CDHint" Text="{Binding MessageAlert.RevokeAlert}" SelectedIndex="0">
+                            <ComboBoxItem Content="不提示"/>
+                            <ComboBoxItem  Content="窗口提示"/>
+                            <ComboBoxItem Content="声音提示"/>
+                        </ComboBox>
+
+                    </StackPanel>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Border Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button  Style="{StaticResource EnterButton1}" HorizontalAlignment="Center" VerticalAlignment="Center" Content="确认"  Width="80" Foreground="White"  Margin="0,10,10,10" Command="{Binding EnterCommand}" Height="30"></Button>
+                <Button Style="{StaticResource EnterButton1}"  Width="80" Foreground="White"  Content="取消"   HorizontalAlignment="Center" Margin="10,10,0,10" VerticalAlignment="Center"  Command="{Binding CancelCommand}" Height="30" ></Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

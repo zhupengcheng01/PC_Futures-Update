@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="PC_Futures.ANXINYI.ContractDetailInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PC_Futures.ANXINYI"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600"  >
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" x:Key="TextBlockStyle">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Foreground" Value="#204e79" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="0,5" />
+
+        </Style>
+
+    </UserControl.Resources>
+    <Border >
+        <Border.Background>
+
+
+            <ImageBrush ImageSource="/PC_Futures.ANXINYI;component/Resources/Images/bejing.png" Stretch="Fill" TileMode="None" />
+
+
+        </Border.Background>
+        <Grid  Margin="25,10,10,10"  VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBlockStyle}" Text="品种代码"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockStyle}" Text="品种名称"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource TextBlockStyle}" Text="交易所"/>
+            <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource TextBlockStyle}" Text="交易币种"/>
+            <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource TextBlockStyle}" Text="合约乘数"/>
+            <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource TextBlockStyle}" Text="最小变动价位"/>
+            <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource TextBlockStyle}" Text="交易时段(北京时间)"/>
+            <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource TextBlockStyle}" Text="最后交易日"/>
+            <TextBlock Grid.Row="8" Grid.Column="0" Style="{StaticResource TextBlockStyle}" Text="主力合约换月"/>
+
+            <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBlockStyle}" Text="{Binding ProductCode}"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBlockStyle}" Text="{Binding ProductName}"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBlockStyle}" Text="{Binding ExchangeName}"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource TextBlockStyle}" Text="{Binding CurrencyName}"/>
+            <TextBlock Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBlockStyle}" Text="{Binding Multiple}"/>
+            <TextBlock Grid.Row="5" Grid.Column="1" Style="{StaticResource TextBlockStyle}" Text="{Binding TickSize}"/>
+            <TextBlock Grid.Row="6" Grid.Column="1" Style="{StaticResource TextBlockStyle}" TextWrapping="Wrap" Text="{Binding TimeListRemark}"/>
+            <TextBlock Grid.Row="7" Grid.Column="1" Style="{StaticResource TextBlockStyle}" TextWrapping="Wrap" Text="{Binding SettleTime}"/>
+            <TextBlock Grid.Row="8" Grid.Column="1" Style="{StaticResource TextBlockStyle}" TextWrapping="Wrap" Text="{Binding ChangeMonth}"/>
+        </Grid>
+    </Border>
+</UserControl>
